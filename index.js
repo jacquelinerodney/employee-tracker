@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "process.env.PASS",
+    password: "Nickjonas33",
     database: "employee_DB",
   });
   
@@ -40,7 +40,7 @@ function init() {
     .then(({ choice }) => {
         switch (choice) {
           case "View all departments":
-            viewDep();
+            viewDept();
             break;
           case "View all roles":
             viewRoles();
@@ -49,7 +49,7 @@ function init() {
             viewEmp();
             break;
           case "Add a department":
-            addDep();
+            addDept();
             break;
           case "Add a role":
             addRole();
@@ -66,7 +66,7 @@ function init() {
       });
   }
   
-  function viewDep() {
+  function viewDept() {
     connection.query("SELECT * FROM department", (err, data) => {
       if (err) throw err;
       console.table(data);
